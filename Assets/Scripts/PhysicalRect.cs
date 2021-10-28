@@ -75,16 +75,32 @@ namespace CustomPhysics
 
         private void TriggerEnter(PhysicalRect pr)
         {
+            ITriggerInterface[] trigs = GetComponents<ITriggerInterface>();
+            for(int i = 0; i < trigs.Length; ++i)
+            {
+                trigs[i].OnCustomTriggerEnter(pr);
+            }
+
             //Debug.Log("OnTriggerEnter");
         }
 
         private void TriggerStay(PhysicalRect pr)
         {
+            ITriggerInterface[] trigs = GetComponents<ITriggerInterface>();
+            for (int i = 0; i < trigs.Length; ++i)
+            {
+                trigs[i].OnCustomTriggerStay(pr);
+            }
             //Debug.Log("OnTriggerStay");
         }
 
         private void TriggerExit(PhysicalRect pr)
         {
+            ITriggerInterface[] trigs = GetComponents<ITriggerInterface>();
+            for (int i = 0; i < trigs.Length; ++i)
+            {
+                trigs[i].OnCustomTriggerExit(pr);
+            }
             //Debug.Log("OnTriggerExit");
         }
     }

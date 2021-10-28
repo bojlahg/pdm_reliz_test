@@ -34,6 +34,7 @@ namespace CustomPhysics
                             if (clsn)
                             {
                                 phys[i].TriggerCollision(phys[j]);
+                                phys[j].TriggerCollision(phys[i]);
                             }
                         }
                     }
